@@ -14,7 +14,12 @@
     {
       "method": "GET",
       "path": "/init",
-      "handler": "admin.init"
+      "handler": "admin.init",
+      "config": {
+        "policies": [
+          "admin::isAuthenticatedAdmin"
+        ]
+      }
     },
     {
       "method": "GET",
@@ -60,22 +65,36 @@
       "policies": [
         "admin::isAuthenticatedAdmin"
       ]
-
     },
     {
       "method": "POST",
       "path": "/register-admin",
-      "handler": "authentication.registerAdmin"
+      "handler": "authentication.registerAdmin",
+      "config": {
+        "policies": [
+          "admin::isAuthenticatedAdmin"
+        ]
+      }
     },
     {
       "method": "GET",
       "path": "/registration-info",
-      "handler": "authentication.registrationInfo"
+      "handler": "authentication.registrationInfo",
+      "config": {
+        "policies": [
+          "admin::isAuthenticatedAdmin"
+        ]
+      }
     },
     {
       "method": "POST",
       "path": "/register",
-      "handler": "authentication.register"
+      "handler": "authentication.register",
+      "config": {
+        "policies": [
+          "admin::isAuthenticatedAdmin"
+        ]
+      }
     },
     {
       "method": "POST",
@@ -110,7 +129,7 @@
         "policies": [
           "admin::isAuthenticatedAdmin",
           ["admin::hasPermissions", ["admin::webhooks.create"]]
-        ]
+        ]a
       }
     },
     {
